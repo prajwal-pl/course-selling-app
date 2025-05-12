@@ -27,7 +27,7 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   courses   Course[]
-  role      Role
+  role      Role     @default(customer)
 }
 
 model Course {
