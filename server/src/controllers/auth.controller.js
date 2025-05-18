@@ -67,7 +67,7 @@ export const login = async (req, res) => {
       console.log("Failed to create token");
     }
 
-    res.status(500).json({ user: existingUser, token: token });
+    res.status(200).json({ user: existingUser, token: token });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Internal Server Error" });

@@ -41,29 +41,6 @@ export const getUserById = async (req, res) => {
   }
 };
 
-export const createUser = async (req, res) => {
-  try {
-    const { username, email, password, role } = req.body;
-
-    const user = await prisma.user.create({
-      data: {
-        username,
-        email,
-        password,
-        role,
-      },
-    });
-
-    if (!user) {
-      return res.status(400).json({ message: "Error creating user" });
-    }
-    return res.status(200).json({ message: "User created successfully" });
-  } catch (error) {
-    console.error("Error creating user:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-};
-
 export const updateUser = async (req, res) => {
   const { id } = req.params;
   const { role } = req.body;
